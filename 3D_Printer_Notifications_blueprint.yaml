@@ -26,7 +26,7 @@ blueprint:
 # Sensors & Images from Bambu Integration
     printer_status_sensor:
       name: Print Status Sensor
-      description: The entity that displays the current status of the print. (Idle, Running, Finish, etc.)
+      description: The entity that displays the current status of the print. (Idle, Running, Finish, etc.). Search for "status"  #added search term to find the sensor easily
       selector:
         entity:
           domain: sensor
@@ -36,7 +36,7 @@ blueprint:
 
     print_progress_sensor:
       name: Print Progress Sensor
-      description: Sensor entity tracking the printer's progress in percentage.
+      description: Sensor entity tracking the printer's progress in percentage. Search for "progress"  #added search term to find the sensor easily
       selector:
         entity:
           domain: sensor
@@ -44,14 +44,14 @@ blueprint:
 
     printer_image_camera:
       name: Image Camera Entity
-      description: Image Camera Entity to capture snapshots of the print. ( You should enable "use image sensor camera" in Bambu integration)
+      description: Image Camera Entity to capture snapshots of the print. ( You should enable "use image sensor camera" in Bambu integration). 
       selector:
         entity:
           domain: image
 
     gcode_image:
       name: GCode Image Entity
-      description: Entity to save GCode thumbnail. (Will be "cover image" used by Bambu integration)
+      description: Entity to save GCode thumbnail. (Will be "cover image" used by Bambu integration). Search for "cover image"  #added search term to find the sensor easily
       selector:
         entity:
           domain: image
@@ -59,7 +59,7 @@ blueprint:
 
     gcode_filename:
       name: GCode File Name 
-      description: Entity to use for GCode Image Snapshot name prefix.
+      description: Entity to use for GCode Image Snapshot name prefix. Search for "file name"  #added search term to find the sensor easily
       selector:
         entity:
           domain: sensor
@@ -67,7 +67,7 @@ blueprint:
 
     print_weight_sensor:
       name: Print Weight Sensor
-      description: Sensor to get the print weight.
+      description: Sensor to get the print weight. Search for "weight"  #added search term to find the sensor easily
       selector:
         entity:
           domain: sensor
@@ -76,7 +76,7 @@ blueprint:
 
     filament_length_sensor:
       name: Filament Length Sensor
-      description: Sensor entity for filament length of current print.
+      description: Sensor entity for filament length of current print. Search for "length"  #added search term to find the sensor easily
       selector:
         entity:
           domain: sensor
@@ -85,7 +85,7 @@ blueprint:
 
     start_time:
       name: Print Start Time
-      description: Sensor entity for print start time.
+      description: Sensor entity for print start time. Search for "start time"  #added search term to find the sensor easily
       selector:
         entity:
           domain: sensor
@@ -93,7 +93,7 @@ blueprint:
 
     end_time:
       name: Print End Time
-      description: Sensor entity for print end time.
+      description: Sensor entity for print end time. Search for "end time"  #added search term to find the sensor easily
       selector:
         entity:
           domain: sensor
@@ -101,7 +101,7 @@ blueprint:
 
     printer_hours:
       name: Printer Hours Usage
-      description: Sensor entity for printer hours usage.
+      description: Sensor entity for printer hours usage. Search for "total usage"  #added search term to find the sensor easily
       selector:
         entity:
           domain: sensor
@@ -113,7 +113,7 @@ blueprint:
       selector:
         entity:
           domain: sensor
-          device_class: energy
+     #     device_class: energy EY - deleted as you can also use utility meter - https://www.home-assistant.io/integrations/utility_meter/
       default: null
 
 # Input Numbers
