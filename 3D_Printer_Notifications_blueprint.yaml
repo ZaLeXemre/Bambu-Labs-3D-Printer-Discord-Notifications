@@ -42,12 +42,12 @@ blueprint:
           domain: sensor
           integration: bambu_lab
 
-    printer_camera:
-      name: Camera Entity
-      description: Entity to capture snapshots of the print.
+    printer_image_camera:
+      name: Image Camera Entity
+      description: Image Camera Entity to capture snapshots of the print. ( You should enable "use image sensor camera" in Bambu integration)
       selector:
         entity:
-          domain: camera
+          domain: image
 
     gcode_image:
       name: GCode Image Entity
@@ -234,13 +234,13 @@ actions:
       - variables:
           snapshot_filename: "3D_Print_{{ now().strftime('%b_%d_%Y - %I.%M%p') }} ({{ states('!input print_weight_sensor') }}g).jpg"
         alias: Define Snapshot Name and Format
-      - action: camera.snapshot
+      - action: image.snapshot
         metadata: {}
         data:
           filename: "/config/www/snapshots/{{ snapshot_filename }}"
         target:
-          entity_id: !input printer_camera
-        alias: Take Snapshot of 3D Print
+          entity_id: !input printer_image_camera
+        alias: Take Snapshot Image of 3D Print
       - action: input_text.set_value
         metadata: {}
         data:
