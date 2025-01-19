@@ -236,13 +236,13 @@ actions:
 #      - variables:
 #          snapshot_filename: "3D_Print_{{ now().strftime('%b_%d_%Y - %I.%M%p') }} ({{ states('!input print_weight_sensor') }}g).jpg"
 #        alias: Define Snapshot Name and Format
-#      - action: image.snapshot
-#        metadata: {}
-#        data:
-#          filename: "/config/www/snapshots/{{ snapshot_filename }}"
-#        target:
-#          entity_id: !input printer_image_camera
-#        alias: Take Snapshot Image of 3D Print
+      - action: image.snapshot
+        metadata: {}
+        data:
+          filename: "/config/www/snapshots/3D_Print_{{ now().strftime('%b_%d_%Y - %I.%M%p')}}.jpg"
+        target:
+          entity_id: !input printer_image_camera
+          alias: Take Snapshot Image of 3D Print
       - action: input_text.set_value
         metadata: {}
         data:
