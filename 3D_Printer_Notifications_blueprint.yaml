@@ -57,14 +57,6 @@ blueprint:
           domain: image
           integration: bambu_lab
 
-    gcode_filename:
-      name: GCode File Name 
-      description: Entity to use for GCode Image Snapshot name prefix. Search for "file name"  #added search term to find the sensor easily
-      selector:
-        entity:
-          domain: sensor
-          integration: bambu_lab
-
     print_weight_sensor:
       name: Print Weight Sensor
       description: Sensor to get the print weight. Search for "weight"  #added search term to find the sensor easily
@@ -166,13 +158,6 @@ blueprint:
         entity:
           domain: input_number
 
-    gcode_image_filename:
-      name: GCode Image Filename
-      description: Input text entity to store the GCode image filename variable.
-      selector:
-        entity:
-          domain: input_text
-
 # Cost Variables
 # EY - if not changed, values are not stored in YAML
     kwh_cost:
@@ -232,28 +217,17 @@ actions:
         enabled: true
         alias: Completed Trigger
     then:
-      - variables:
-          image_camera_snapshot_filename: "3D_Print_Completed{{ now().strftime('%b_%d_%Y - %I.%M%p') }}.jpg"
-      alias: Define Snapshot Name and Format
       - action: image.snapshot
         metadata: {}
         data:
-          filename: >-
-            /config/www/snapshots/{{ states('!input image_camera_snapshot_filename') }}
+          filename: "/config/www/snapshots/3D_Print_Completed.jpg"
         target:
-          entity_id: image.bambu_lab_a1_3d_printer_camera
+          entity_id: !input printer_image_camera
         alias: Save Image Camera Snapshot
-      - action: input_text.set_value
-        metadata: {}
-        data:
-          value: "gcode_simple_name.png"
-        target:
-          entity_id: !input gcode_image_filename
-        alias: Set GCode Filename Variable
       - action: image.snapshot
         metadata: {}
         data:
-          filename: "/config/www/snapshots/gcode_thumbnail/{{ states('!input gcode_image_filename') }}"
+          filename: "/config/www/snapshots/gcode_thumbnail/gcode_simple_name.png"
         target:
           entity_id: !input gcode_image
         alias: Save GCode Image
