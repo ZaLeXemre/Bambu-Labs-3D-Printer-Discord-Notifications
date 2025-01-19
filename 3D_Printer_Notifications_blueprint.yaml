@@ -373,12 +373,10 @@ actions:
             }}\n **All Time Weight:** {{ weight_alltime }}lbs\n **Length:** {{
             length_total }}m ({{ length_total_ft }}ft)
           home_url_text: !input home_url
-          gcode_image_filename_entity: !input gcode_image_filename
           photo_url: > # EY - changed the code for A1 image camera
-            {{ home_url_text }}/api/image_proxy/{{ printer_image_camera }}?token={{
-            state_attr('{{ printer_image_camera }}', 'access_token') }}
+            {{ home_url_text }}/local/snapshots/3D_Print_Completed.jpg
           thumb_url: >
-            {{ home_url_text }}/local/snapshots/gcode_thumbnail/{{ gcode_image_filename_entity | urlencode }}
+            {{ home_url_text }}/local/snapshots/gcode_thumbnail/gcode_simple_name.png
         alias: >-
           Define variables: Cost, Length, Length (ft), Length (Total), Length
           Total (ft), Printer Hours (All Time), Weight (All Time), Start Time,
