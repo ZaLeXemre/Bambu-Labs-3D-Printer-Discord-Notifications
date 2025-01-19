@@ -3,7 +3,7 @@
 # Will continue to update as I figure out the problems
 
 blueprint:
-  name: 3D Printer - Completed Notification
+  name: 3D Printer - Completed Notification - BETA - EY
   description: Automation for sending a Discord message with current print statistics and historical analytics. 
   domain: automation
   source_url: https://github.com/coltography
