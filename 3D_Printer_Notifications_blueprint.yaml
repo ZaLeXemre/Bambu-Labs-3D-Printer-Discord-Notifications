@@ -234,7 +234,7 @@ actions:
     then:
       - variables:
           image_camera_snapshot_filename: "3D_Print_Completed{{ now().strftime('%b_%d_%Y - %I.%M%p') }}.jpg"
-          alias: Define Snapshot Name and Format
+      alias: Define Snapshot Name and Format
       - action: image.snapshot
         metadata: {}
         data:
